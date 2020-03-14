@@ -6,11 +6,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <video autoplay loop src="assets/sagnik.mov"></video>
+<ion-content padding color ="dark">
   
   <ion-grid>
-    <ion-col>
+    <ion-col offset-md = "8">
       <ion-row size-md = "8" offset-md="3">
         <ion-card>
         <ion-card-content color = "dark">
@@ -22,12 +21,16 @@
             <ion-label floating>Weight(in kg)</ion-label>
             <ion-input type='number' [(ngModel)]= "weight"></ion-input>
           </ion-item>
-          <button ion-button block color = "secondary" (click)="calculate()">Calculate</button>
+          <button ion-button block color = "secondary" (click)="calculate()" icon><ion-icon src = "md-arrow-dropright-circle"></ion-icon>Calculate</button>
         </ion-card-content>
-        <ion-card-content>
-        <h1>Your BMI is : {{bmi}}</h1>
-      </ion-card-content>
-    </ion-card>
+        </ion-card>
+
+        
+          <div class = "Screen" *ngIf = "BMI">
+            <h1>Your BMI is : {{ BMI }}</h1>
+            <h2> This is classified as : {{ classification }}</h2>
+          </div>
+
       </ion-row>
     </ion-col>
   </ion-grid>
